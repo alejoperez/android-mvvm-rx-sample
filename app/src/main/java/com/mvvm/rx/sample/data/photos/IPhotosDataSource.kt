@@ -1,13 +1,12 @@
 package com.mvvm.rx.sample.data.photos
 
-import android.arch.lifecycle.LiveData
 import android.content.Context
 import com.mvvm.rx.sample.data.room.Photo
-import com.mvvm.rx.sample.livedata.Event
+import io.reactivex.Single
 
 interface IPhotosDataSource {
 
-    fun getPhotos(context: Context): LiveData<Event<List<Photo>>>
+    fun getPhotos(context: Context): Single<List<Photo>>
 
     fun savePhotos(context: Context, photos: List<Photo>)
 

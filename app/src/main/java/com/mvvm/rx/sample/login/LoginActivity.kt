@@ -23,11 +23,10 @@ class LoginActivity : BaseActivity<LoginViewModel,ActivityLoginBinding>() {
 
     override fun initViewModel() {
         super.initViewModel()
-        viewModel.loginResponse.observe(this, onLoginResponseObserver)
+        viewModel.loginEvent.observe(this, onLoginResponseObserver)
     }
 
     private val onLoginResponseObserver = Observer<Event<LoginResponse>> {
-        viewModel.hideProgress()
         if (it != null) {
             onLoginResponse(it)
         } else {

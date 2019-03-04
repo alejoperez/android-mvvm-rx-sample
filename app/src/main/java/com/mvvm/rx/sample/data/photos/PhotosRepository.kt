@@ -1,10 +1,8 @@
 package com.mvvm.rx.sample.data.photos
 
-import android.arch.lifecycle.LiveData
 import android.content.Context
 import com.mvvm.rx.sample.data.room.Photo
-import com.mvvm.rx.sample.livedata.Event
-import com.mvvm.rx.sample.livedata.NetworkRequest
+import io.reactivex.Single
 
 class PhotosRepository private constructor(
         private val localDataSource: IPhotosDataSource = PhotosLocalDataSource(),
@@ -22,28 +20,20 @@ class PhotosRepository private constructor(
         }
     }
 
-    override fun getPhotos(context: Context): LiveData<Event<List<Photo>>> {
+    override fun getPhotos(context: Context): Single<List<Photo>> {
         return if (hasCache) {
             localDataSource.getPhotos(context)
         } else {
-            object : NetworkRequest<Event<List<Photo>>>() {
-
-                override fun processBeforeDispatch(response: Event<List<Photo>>) {
-                    response.peekData()?.let {
-                        savePhotos(context, it)
+            remoteDataSource.getPhotos(context)
+                    .doAfterSuccess {
+                        savePhotos(context,it)
                         hasCache = true
                     }
-                }
 
-                override fun networkRequestToObserve(): LiveData<Event<List<Photo>>> = remoteDataSource.getPhotos(context)
-
-            }.performRequest()
         }
     }
 
-    override fun savePhotos(context: Context,photos: List<Photo>) {
-        localDataSource.savePhotos(context, photos)
-    }
+    override fun savePhotos(context: Context,photos: List<Photo>) = localDataSource.savePhotos(context, photos)
 
     fun invalidateCache() {
         hasCache = false

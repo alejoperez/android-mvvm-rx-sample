@@ -1,9 +1,8 @@
 package com.mvvm.rx.sample.webservice
 
-import android.arch.lifecycle.LiveData
 import com.mvvm.rx.sample.data.room.Photo
 import com.mvvm.rx.sample.data.room.Place
-import com.mvvm.rx.sample.livedata.Event
+import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -11,15 +10,15 @@ import retrofit2.http.POST
 interface IApi {
 
     @POST("user/login")
-    fun login(@Body request: LoginRequest): LiveData<Event<LoginResponse>>
+    fun login(@Body request: LoginRequest): Single<LoginResponse>
 
     @POST("user/register")
-    fun register(@Body request: RegisterRequest): LiveData<Event<RegisterResponse>>
+    fun register(@Body request: RegisterRequest): Single<RegisterResponse>
 
     @GET("places")
-    fun getPlaces(): LiveData<Event<List<Place>>>
+    fun getPlaces(): Single<List<Place>>
 
     @GET("photos")
-    fun getPhotos(): LiveData<Event<List<Photo>>>
+    fun getPhotos(): Single<List<Photo>>
 
 }

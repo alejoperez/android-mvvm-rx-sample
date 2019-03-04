@@ -26,7 +26,7 @@ class RegisterActivity : BaseActivity<RegisterViewModel,ActivityRegisterBinding>
 
     override fun initViewModel() {
         super.initViewModel()
-        viewModel.registerResponse.observe(this, onRegisterResponseObserver)
+        viewModel.registerEvent.observe(this, onRegisterResponseObserver)
     }
 
     override fun initView() {
@@ -35,7 +35,6 @@ class RegisterActivity : BaseActivity<RegisterViewModel,ActivityRegisterBinding>
     }
 
     private val onRegisterResponseObserver = Observer<Event<RegisterResponse>> {
-        viewModel.hideProgress()
         if(it != null) {
             onRegisterResponse(it)
         } else {

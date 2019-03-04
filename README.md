@@ -1,1 +1,1 @@
-# android-mvvm-sample
+# android-mvvm-rx-sample

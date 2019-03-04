@@ -40,7 +40,6 @@ class PhotosFragment : BaseFragment<PhotosViewModel,FragmentPhotosBinding>(), Ba
     }
 
     private val onPhotosResponseObserver = Observer<Event<List<Photo>>> {
-        viewModel.hideProgress()
         if (it != null) {
             onPhotosResponse(it)
         } else {

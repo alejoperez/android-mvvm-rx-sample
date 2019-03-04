@@ -18,6 +18,8 @@ buildscript {
     ext.glide_version = '4.8.0'
     ext.lifecycle_version = '1.1.1'
     ext.room_version = "1.1.1"
+    ext.rx_kotlin_version = '2.3.0'
+    ext.rx_android_version = '2.1.1'
 
 
     repositories {

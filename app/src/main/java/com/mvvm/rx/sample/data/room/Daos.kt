@@ -1,16 +1,16 @@
 package com.mvvm.rx.sample.data.room
 
-import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
+import io.reactivex.Single
 
 @Dao
 interface UserDao {
 
     @Query("SELECT * from user LIMIT 1")
-    fun getUser(): LiveData<User>
+    fun getUser(): Single<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveUser(user: User)
@@ -21,7 +21,7 @@ interface UserDao {
 interface PlaceDao {
 
     @Query("SELECT * from place")
-    fun getPlaces(): LiveData<List<Place>>
+    fun getPlaces(): Single<List<Place>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun savePlaces(places: List<Place>)
@@ -32,7 +32,7 @@ interface PlaceDao {
 interface PhotoDao {
 
     @Query("SELECT * from photo")
-    fun getPhotos(): LiveData<List<Photo>>
+    fun getPhotos(): Single<List<Photo>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun savePhotos(photos: List<Photo>)

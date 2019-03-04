@@ -2,11 +2,11 @@ package com.mvvm.rx.sample.webservice
 
 import android.content.Context
 import com.mvvm.rx.sample.BuildConfig
-import com.mvvm.rx.sample.livedata.LiveDataCallAdapterFactory
 import com.mvvm.rx.sample.data.preference.PreferenceManager
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -26,7 +26,7 @@ object WebService {
     private val builder: Retrofit.Builder = Retrofit.Builder()
             .baseUrl(BuildConfig.SERVER_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
     fun <S> createService(context: Context, serviceClass: Class<S>, authType: AuthenticationType = AuthenticationType.NONE): S {
 
