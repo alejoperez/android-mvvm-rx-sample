@@ -1,7 +1,7 @@
 package com.mvvm.rx.sample.splash
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mvvm.rx.sample.base.BaseViewModel
 import com.mvvm.rx.sample.data.user.UserRepository
 import com.mvvm.rx.sample.livedata.Event

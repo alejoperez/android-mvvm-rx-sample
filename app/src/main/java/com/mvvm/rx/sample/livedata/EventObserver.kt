@@ -1,6 +1,6 @@
 package com.mvvm.rx.sample.livedata
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 
 
 /**

@@ -1,7 +1,7 @@
 package com.mvvm.rx.sample.photos
 
-import android.arch.lifecycle.Observer
-import android.support.v7.widget.LinearLayoutManager
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mvvm.rx.sample.BR

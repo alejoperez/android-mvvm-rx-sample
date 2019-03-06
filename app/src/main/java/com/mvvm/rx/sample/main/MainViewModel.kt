@@ -1,7 +1,7 @@
 package com.mvvm.rx.sample.main
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mvvm.rx.sample.base.BaseViewModel
 import com.mvvm.rx.sample.data.room.User
 import com.mvvm.rx.sample.data.user.UserRepository

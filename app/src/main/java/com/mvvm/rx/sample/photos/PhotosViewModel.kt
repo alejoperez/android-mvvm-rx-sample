@@ -1,8 +1,8 @@
 package com.mvvm.rx.sample.photos
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
-import android.databinding.ObservableBoolean
+import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableBoolean
 import com.mvvm.rx.sample.base.BaseViewModel
 import com.mvvm.rx.sample.data.room.Photo
 import com.mvvm.rx.sample.data.photos.PhotosRepository

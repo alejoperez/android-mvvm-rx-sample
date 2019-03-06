@@ -1,9 +1,9 @@
 package com.mvvm.rx.sample.register
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
-import android.databinding.ObservableField
-import android.databinding.ObservableInt
+import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import com.mvvm.rx.sample.R
 import com.mvvm.rx.sample.base.BaseViewModel
 import com.mvvm.rx.sample.data.user.UserRepository

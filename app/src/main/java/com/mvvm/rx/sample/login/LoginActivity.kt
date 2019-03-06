@@ -1,7 +1,7 @@
 package com.mvvm.rx.sample.login
 
-import android.arch.lifecycle.Observer
-import com.android.databinding.library.baseAdapters.BR
+import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.Observer
 import com.mvvm.rx.sample.R
 import com.mvvm.rx.sample.base.BaseActivity
 import com.mvvm.rx.sample.databinding.ActivityLoginBinding
